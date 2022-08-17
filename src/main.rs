@@ -8,23 +8,29 @@ mod prelude {
 }
 use prelude::*;
 
-struct State {}
+const FPS_CAP: f32 = 60.0;
+
+struct State {
+    map: Map,
+}
 
 impl GameState for State {
     fn tick(&mut self, ctx: &mut BTerm) {
-        ctx.print(1, 1, "Welcome to Rusty Dungeon!")
+        ctx.cls();
+        self.map.render(ctx)
     }
 }
 
 impl State {
     fn new() -> Self {
-        Self {}
+        Self { map: Map::new() }
     }
 }
 
 fn main() -> BError {
     let context = BTermBuilder::simple80x50()
         .with_title("Rusty Dungeon")
+        .with_fps_cap(FPS_CAP)
         .build()?;
     main_loop(context, State::new())
 }
