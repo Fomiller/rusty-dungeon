@@ -55,8 +55,8 @@ impl State {
             ecs,
             resources,
             input_systems: build_input_scheduler(),
-            monster_systems: build_player_scheduler(),
-            player_systems: build_monster_scheduler(),
+            player_systems: build_player_scheduler(),
+            monster_systems: build_monster_scheduler(),
         }
     }
 }
