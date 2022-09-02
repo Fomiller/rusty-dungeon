@@ -25,6 +25,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          EXTRA_FILES: "resources/font/dungeonfont.png"
+          EXTRA_FILES: "resources/font/dungeonfont.png resources/font/terminal8x8.png"
           RUSTTARGET: ${{ matrix.target }}
           ARCHIVE_TYPES: ${{ matrix.archive }}
